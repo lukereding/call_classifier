@@ -10,7 +10,7 @@ The code uses [GoCV](https://gocv.io/) to display images of frog calls to the us
 
 The program is available as an executable binary compiled on macOS, which means all you need to do is download the binary, make it executable `chmod +x call_classifer`, then execute it with `./call_classifer` or `bash call_classifer`. However, you must have OpenCV v.4 installed on your machine. [This](https://gocv.io/getting-started/macos/) page outlines the steps, but `brew install hybridgroup/tools/opencv` should be all you need, assuming you've installed [homebrew](brew.sh).
 
-## Notes
+## Notes on useage
 
 The program assumes these are the types are calls you care about. Type of call on the left, keystroke to press to denote that call on the right:
 
@@ -36,6 +36,8 @@ some_massive_folder
 │   ├── image3.png
 │   ├── ...
 ```
+
+The program should be run from, given the above file structure, `some_massive_folder`.
 
 Other filetypes besides `png` files are ignored and will not be moved.
 
