@@ -53,14 +53,6 @@ func makeFullPath(dir string, fileName os.FileInfo) string {
 	return filepath.Join(dir, fileName.Name())
 }
 
-func Map(files []os.FileInfo, f func(string, os.FileInfo) string) []string {
-	fullPaths := make([]string, len(files))
-	for i, file := range files {
-		fullPaths[i] = f(getFolder(), file)
-	}
-	return fullPaths
-}
-
 func getFolder() string {
 	homeDirectory := "."
 	return homeDirectory
@@ -206,8 +198,6 @@ func main() {
 		fmt.Println(file)
 	}
 
-	// fullPaths := Map(files, makeFullPath)
-
 	for _, file := range files {
 
 		if strings.HasSuffix(file, ".png") {
@@ -217,7 +207,4 @@ func main() {
 
 		}
 	}
-	// move each photo
-
-	// write to csv
 }
