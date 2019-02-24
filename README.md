@@ -4,11 +4,15 @@ A program to make manual categorization of tungara frog calls fast.
 
 ## How it works
 
-The code uses [GoCV](https://gocv.io/) to display images of frog calls to the user. With each image displayed, the user selects a key to classify the type of frog call. The image then gets moves to the folder associated with that category of call.
+The code uses the Python bindings for [OpenCV](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html) to display images of frog calls to the user. With each image displayed, the user selects a key to classify the type of frog call. The image then gets moves to the folder associated with that category of call.
 
-## Installation
+## Steps
 
-The program is available as an executable binary compiled on macOS, which means all you need to do is download the binary, make it executable `chmod +x call_classifer`, then execute it with `./call_classifer` or `bash call_classifer`. However, you must have OpenCV v.4 installed on your machine. [This](https://gocv.io/getting-started/macos/) page outlines the steps, but `brew install hybridgroup/tools/opencv` should be all you need, assuming you've installed [homebrew](brew.sh).
+1. Set up the `conda` environment. (You can install `conda` from [here](https://docs.conda.io/en/latest/miniconda.html)). Once `conda` is installed, run `conda config --add channels conda-forge` to make sure you get your packages from conda-forge  then `conda create --name opencv --environment.yaml` to create the environment.
+2. `conda activate opencv` to activate the opencv environment.
+3. `python classify.py`
+
+The program picks a folder that contains pngs and shows these one at a time to the user. The user selects the key that corresponds with the type of call. That image is then moved to a folder with the name of the call and a new image is shown to the user. Then continues until the folder is exhausted of png files, at which point the program exits.
 
 ## Notes on useage
 
@@ -41,11 +45,9 @@ The program should be run from, given the above file structure, `some_massive_fo
 
 Other filetypes besides `png` files are ignored and will not be moved.
 
-Each time you call the program, it will find a single folder containing `png`s. It will exit when done with that folder. Call the program again to start on a new folder.
-
 ### PDF vs image files
 
-Since the program makes use of [GoCV](https://gocv.io/), it can only display image files like `png`s or `jpg`s. Meghan's images were all in PDF format. To convert all the PDFs to `png`s, I used 
+Since the program makes use of OpenCV, it can only display image files like `png`s or `jpg`s. Meghan's images were all in PDF format. To convert all the PDFs to `png`s, I used 
 
 ```bash
 find . -name *.pdf | gtime parallel -j+0 --eta convert -density 150 {} -quality 90 {.}.png
