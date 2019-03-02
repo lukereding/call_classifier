@@ -8,9 +8,13 @@ The code uses the Python bindings for [OpenCV](https://opencv-python-tutroals.re
 
 ## Steps
 
-1. Set up the `conda` environment. (You can install `conda` from [here](https://docs.conda.io/en/latest/miniconda.html)). Once `conda` is installed, run `conda config --add channels conda-forge` to make sure you get your packages from conda-forge  then `conda create --name opencv --environment.yaml` to create the environment.
+1. Set up the `conda` environment. (You can install `conda` from [here](https://docs.conda.io/en/latest/miniconda.html)). 
+
+Once `conda` is installed, run `conda config --add channels conda-forge` to make sure you get your packages from conda-forge  then `conda create --name opencv --file environment.yaml` to create the environment.
+
 2. `conda activate opencv` to activate the opencv environment.
-3. `python classify.py`
+
+3. `python classify.py` to run the program.
 
 The program picks a folder that contains pngs and shows these one at a time to the user. The user selects the key that corresponds with the type of call. That image is then moved to a folder with the name of the call and a new image is shown to the user. Then continues until the folder is exhausted of png files, at which point the program exits.
 
