@@ -128,7 +128,7 @@ def findNonEmptyFolderIn(folder: str) -> str:
         files = getListOfPNGsIn(folder)
         if files:
             return folder
-    os.exit("No folders left with pngs")
+    sys.exit("No folders left with pngs")
 
 
 def moveFileToCategory(file: str, category: str, topLevelDirectory: str):
