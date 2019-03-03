@@ -1,9 +1,11 @@
 import os
-import cv2
-import numpy as np
 from os.path import isfile, join
-from typing import Dict, List
 from sys import exit
+from typing import Dict, List
+
+import numpy as np
+
+import cv2
 
 
 def defineKeyboardMapping() -> Dict[int, str]:
