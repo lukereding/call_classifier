@@ -10,7 +10,21 @@ The code uses the Python bindings for [OpenCV](https://opencv-python-tutroals.re
 
 1. Set up the `conda` environment. (You can install `conda` from [here](https://docs.conda.io/en/latest/miniconda.html)). 
 
-Once `conda` is installed, run `conda config --add channels conda-forge` to make sure you get your packages from conda-forge  then `conda create --name opencv --file environment.yaml` to create the environment.
+Once `conda` is installed, run 
+
+`conda config --add channels conda-forge`
+
+to make sure you get your packages from conda-forge, then 
+
+`conda create --name opencv --file environment.yaml`
+
+to create the environment.
+
+If you get an error at this step, it might be because I made the package in that `yaml` file too specific. If that's the case, try
+
+```
+conda create --name opencv python=3.7 opencv numpy
+```
 
 2. `conda activate opencv` to activate the opencv environment.
 
