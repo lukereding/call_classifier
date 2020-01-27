@@ -153,6 +153,7 @@ if __name__ == "__main__":
     files = getListOfPNGsIn(directory)
 
     for file in files:
+        print(f"Using file {file}")
         category = showImageToUser(os.path.join(directory, file))
         print(category)
         moveFileToCategory(os.path.join(directory, file), category, topLevelDirectory)
